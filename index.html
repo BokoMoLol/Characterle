@@ -141,7 +141,7 @@
 <body>
 	<main class="game">
 		<h1>Letterle</h1>
-		<p class="subtitle">Guess the secret letter in 5 tries.</p>
+		<p class="subtitle">Guess the secret letter.</p>
 
 		<div class="board" id="board"></div>
 		<div class="message" id="message">Type or tap a letter.</div>
@@ -155,7 +155,7 @@
 
 	<script>
 		const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		const maxGuesses = 5;
+		const maxGuesses = 26;
 		let answer = "";
 		let guessNumber = 0;
 		let gameOver = false;
@@ -220,7 +220,7 @@
 			if (letter === answer) {
 				tile.classList.add("correct");
 				key.classList.add("correct");
-				message.textContent = "Correct! The letter was " + answer + ".";
+				message.textContent = "Correct!";
 				gameOver = true;
 			} else {
 				tile.classList.add("wrong");
@@ -228,10 +228,8 @@
 				guessNumber++;
 
 				if (guessNumber === maxGuesses) {
-					message.textContent = "Out of guesses. The letter was " + answer + ".";
+					message.textContent = "You somehow didn't get the corrent answer in 26 tries";
 					gameOver = true;
-				} else {
-					message.textContent = "Nope. Try again.";
 				}
 			}
 		}
