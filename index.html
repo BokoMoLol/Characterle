@@ -154,8 +154,8 @@
 	</main>
 
 	<script>
-		const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		const maxGuesses = 26;
+		const alphabet = "1234567890`-=~!@#$%^&*()_+qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM[];',./{}|:<>?";
+		const maxGuesses = 92;
 		let answer = "";
 		let guessNumber = 0;
 		let gameOver = false;
@@ -228,7 +228,7 @@
 				guessNumber++;
 
 				if (guessNumber === maxGuesses) {
-					message.textContent = "You somehow didn't get the corrent answer in 26 tries";
+					message.textContent = "You somehow didn't get the corrent answer in the given tries";
 					gameOver = true;
 				}
 			}
