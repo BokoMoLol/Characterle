@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Letterle</title>
+	<title>Characterle</title>
 	<style>
 		* {
 			box-sizing: border-box;
@@ -29,7 +29,7 @@
 		h1 {
 			margin: 0 0 8px;
 			font-size: 42px;
-			letter-spacing: 2px;
+			Character-spacing: 2px;
 		}
 
 		.subtitle {
@@ -140,11 +140,11 @@
 </head>
 <body>
 	<main class="game">
-		<h1>Letterle</h1>
-		<p class="subtitle">Guess the secret letter.</p>
+		<h1>Characterle</h1>
+		<p class="subtitle">Guess the secret Character.</p>
 
 		<div class="board" id="board"></div>
-		<div class="message" id="message">Type or tap a letter.</div>
+		<div class="message" id="message">Type or tap a Character.</div>
 		<div class="keyboard" id="keyboard"></div>
 
 		<div class="controls">
@@ -179,13 +179,13 @@
 			keyboard.innerHTML = "";
 
 			for (let i = 0; i < alphabet.length; i++) {
-				const letter = alphabet.charAt(i);
+				const Character = alphabet.charAt(i);
 				const key = document.createElement("button");
 				key.className = "key";
-				key.textContent = letter;
-				key.id = "key-" + letter;
+				key.textContent = Character;
+				key.id = "key-" + Character;
 				key.onclick = function() {
-					makeGuess(letter);
+					makeGuess(Character);
 				};
 				keyboard.appendChild(key);
 			}
@@ -195,29 +195,29 @@
 			answer = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
 			guessNumber = 0;
 			gameOver = false;
-			message.textContent = "Type or tap a letter.";
+			message.textContent = "Type or tap a Character.";
 			buildBoard();
 			buildKeyboard();
 		}
 
-		function makeGuess(letter) {
+		function makeGuess(Character) {
 			if (gameOver || guessNumber >= maxGuesses) {
 				return;
 			}
 
-			letter = letter.toUpperCase();
+			Character = Character.toUpperCase();
 
-			if (alphabet.indexOf(letter) === -1 || letter.length !== 1) {
+			if (alphabet.indexOf(Character) === -1 || Character.length !== 1) {
 				return;
 			}
 
 			const tile = document.getElementById("tile-" + guessNumber);
-			const key = document.getElementById("key-" + letter);
+			const key = document.getElementById("key-" + Character);
 
-			tile.textContent = letter;
+			tile.textContent = Character;
 			tile.classList.add("filled");
 
-			if (letter === answer) {
+			if (Character === answer) {
 				tile.classList.add("correct");
 				key.classList.add("correct");
 				message.textContent = "Correct!";
